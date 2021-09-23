@@ -1,12 +1,13 @@
-
 Jenkinsfile (Declarative Pipeline)
 
 pipeline {
-    agent { docker 'node:12.18' }
+    agent {
+        docker { image 'node:7-alpine' }
+    }
     stages {
-        stage('build') {
+        stage('Test') {
             steps {
-                sh 'npm --version'
+                sh 'node --version'
             }
         }
     }
